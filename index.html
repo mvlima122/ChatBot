@@ -16,23 +16,46 @@
     <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel">
-        const Title = <h1>Hello React!</h1>
-        const Paragraph = <p>Welcome to React course!</p>
 
-        const App = (
-            <div>
-                {Title}
-                {Paragraph}
-            </div>
+        // function Title(){
+        //     return <h1>Hello React </h1>
+        // };
 
+        // function Paragraph(){
+        //     return <p>Welcome to React course!</p>
+        // };
 
-        )
+        function ChatInput() {
+            return (
+                <div>
+                    <input type = "text" placeholder ="Send a message to Chatbot" size ="30"/>
+                    <button>Send</button>
 
+                </div>
+            );
+        };
 
-
+        function ChatMessage() {
+            return(
+                <div>
+                    Hello!
+                    Img
+                </div>
+            )
+        }
+         
+        function App() {
+            return (
+            <>
+                <ChatInput/>
+            </>
+            );
+        };
+            
 
         const container = document.querySelector('#container');
-        ReactDOM.createRoot(container).render(App)
+        // Transformou App em um componente.
+        ReactDOM.createRoot(container).render(<App/>)
 
     </script>
 </body>
