@@ -11,9 +11,18 @@
 
     <main id="container"></main>
 
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script
+      crossorigin 
+      src="https://unpkg.com/react@18/umd/react.development.js">
+     </script>
+     <script 
+      crossorigin 
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js">
+     </script>
+     <script
+       crossorigin 
+       src="https://unpkg.com/@babel/standalone/babel.min.js">
+    </script>
 
     <script type="text/babel">
 
@@ -30,8 +39,12 @@
         function ChatInput() {
             return (
                 <div>
-                    <input type = "text" placeholder ="Send a message to Chatbot" size ="30"/>
-                    <button>Send</button>
+                    <input 
+                      type = "text" 
+                      placeholder ="Send a message to Chatbot" 
+                      size ="30"
+                    />
+                    <button>Send</button>   
 
                 </div>
             );
@@ -40,20 +53,25 @@
         function ChatMessage({ message, sender }) {
 
 
-            if( sender === 'robot') {
-                return(
-                    <div>
-                    <img src="./assets/robot.png" width="50" />
-                    {message}
-                </div>
+            // if( sender === 'robot') {
+            //     return(
+            //         <div>
+            //         <img src="./assets/robot.png" width="50" />
+            //         {message}
+            //     </div>
 
-                );
-            };
+            //     );
+            // };
 
             return(
                 <div>
+                    {sender === 'robot' && (
+                        <img src="./assets/robot.png" width="50" />
+                    )}
                     {message}
-                    <img src="./assets/user.png" width="50" />
+                    {sender === 'robot' && (
+                        <img src="./assets/user.png" width="50" />
+                    )}
                 </div>
             );
         };
@@ -62,10 +80,22 @@
             return (
                 <>
                     <ChatInput/>
-                    <ChatMessage message="Hello!" sender="user"/>
-                    <ChatMessage message="Hello! How can I help you?" sender="robot"/>
-                    <ChatMessage message="flip a coin." sender="user"/>
-                    <ChatMessage message="Sure! you got tails." sender="robot"/>
+                    <ChatMessage 
+                    message="Hello!"
+                     sender="user"
+                     />
+                    <ChatMessage 
+                    message="Hello! How can I help you?" 
+                    sender="robot"
+                    />
+                    <ChatMessage 
+                    message="flip a coin." 
+                    sender="user"
+                    />
+                    <ChatMessage 
+                    message="Sure! you got tails." 
+                    sender="robot"
+                    />
                 </>
             );
         };
