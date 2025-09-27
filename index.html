@@ -17,6 +17,8 @@
 
     <script type="text/babel">
 
+
+
         // function Title(){
         //     return <h1>Hello React </h1>
         // };
@@ -35,20 +37,36 @@
             );
         };
 
-        function ChatMessage() {
+        function ChatMessage({ message, sender }) {
+
+
+            if( sender === 'robot') {
+                return(
+                    <div>
+                    <img src="./assets/robot.png" width="50" />
+                    {message}
+                </div>
+
+                );
+            };
+
             return(
                 <div>
-                    Hello!
-                    Img
+                    {message}
+                    <img src="./assets/user.png" width="50" />
                 </div>
-            )
-        }
+            );
+        };
          
         function App() {
             return (
-            <>
-                <ChatInput/>
-            </>
+                <>
+                    <ChatInput/>
+                    <ChatMessage message="Hello!" sender="user"/>
+                    <ChatMessage message="Hello! How can I help you?" sender="robot"/>
+                    <ChatMessage message="flip a coin." sender="user"/>
+                    <ChatMessage message="Sure! you got tails." sender="robot"/>
+                </>
             );
         };
             
